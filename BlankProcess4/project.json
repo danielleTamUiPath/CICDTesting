@@ -4,7 +4,6 @@
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
-    "CoE.AutomationCloud.Activities.Runtime": "[1.0.8]",
     "UiPath.Excel.Activities": "[2.22.3]",
     "UiPath.Mail.Activities": "[1.21.1]",
     "UiPath.System.Activities": "[23.10.5]",
