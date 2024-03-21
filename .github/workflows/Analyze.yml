@@ -32,24 +32,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Analyze project for errors  
         shell:  pwsh
-        run: ${{github.workspace}}\BlankProcess4\UiPathAnalyzeProject.ps1 "${{github.workspace}}\BlankProcess4\project.json" -analyzerTraceLevel "Info" -stopOnRuleViolation true -treatWarningsAsErrors false -resultPath "${{github.workspace}}\BlankProcess4\output.json" -orchestratorUrl "https://staging.uipath.com" -orchestratorAccountForApp "tamcontieri" -orchestratorTenant "DefaultTenant" -orchestratorApplicationId "d1fb1f0a-5e14-4e54-ba83-7370f9942846" -orchestratorApplicationSecret "TVgsSyR)(o)X5LEB" -orchestratorApplicationScope "OR.Administration OR.Analytics OR.Assets OR.Audit OR.BackgroundTasks OR.Execution OR.Folders OR.Hypervisor OR.Jobs OR.License OR.Machines OR.ML OR.Monitoring OR.Queues OR.Robots OR.Robots.Read OR.Settings OR.Tasks OR.TestDataQueues OR.TestSetExecutions OR.TestSets OR.TestSetSchedules OR.Users OR.Webhooks"  -orchestratorFolder "Shared"
-
+        run: ${{github.workspace}}\BlankProcess4\UiPathAnalyzeProject.ps1 ${{github.workspace}}\BlankProcess4\project.json -analyzerTraceLevel "Info" -stopOnRuleViolation true -treatWarningsAsErrors false -resultPath ${{github.workspace}}\BlankProcess4\output.json -orchestratorUrl https://staging.uipath.com -orchestratorAccountForApp tamcontieri -orchestratorTenant DefaultTenant -orchestratorApplicationId d1fb1f0a-5e14-4e54-ba83-7370f9942846 -orchestratorApplicationSecret TVgsSyR)(o)X5LEB -orchestratorApplicationScope OR.Administration OR.Analytics OR.Assets OR.Audit OR.BackgroundTasks OR.Execution OR.Folders OR.Hypervisor OR.Jobs OR.License OR.Machines OR.ML OR.Monitoring OR.Queues OR.Robots OR.Robots.Read OR.Settings OR.Tasks OR.TestDataQueues OR.TestSetExecutions OR.TestSets OR.TestSetSchedules OR.Users OR.Webhooks  -orchestratorFolder Shared
 
        
-  build-uipath-nuget-package:
-    # if: github.event.pull_request.merged == true
-    needs: analyze-project
-    runs-on: windows-latest
-    steps:
-      - name: Check out repository code 
-        uses: actions/checkout@v3
-      - name: Build nuget package 
-        shell:  pwsh
-        run:  ${{ github.workspace }}\BlankProcess4\UiPathPack.ps1 ${{ github.workspace }}\BlankProcess4\project.json -destination_folder ${{ github.workspace }}\package -autoVersion 
-      - name: Upload UiPath Artifacts
-        uses: actions/upload-artifact@v3
-        with: 
-          name: Artifacts
-          path: |
-            package/*.*
-            scripts/*.ps1         
