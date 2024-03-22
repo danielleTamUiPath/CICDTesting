@@ -7,4 +7,5 @@ function Get-Token {
     
     $tokenResponse = Invoke-RestMethod -Method POST -Uri 'https://staging.uipath.com/identity_/connect/token' -Headers $header -Body $body -ContentType "application/x-www-form-urlencoded"
     return $tokenResponse.access_token
+    echo $tokenResponse.access_token
 }
