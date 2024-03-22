@@ -21,6 +21,7 @@ jobs:
       - name: Runner workspace path
         run: |
           tnc staging.uipath.com
+          tnc google.com
           echo ${{github.workspace}}
 
 
