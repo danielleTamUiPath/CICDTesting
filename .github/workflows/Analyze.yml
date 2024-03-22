@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Runner workspace path
         run: |
-          ping https://staging.uipath.com/tamcontieri/
+          tnc staging.uipath.com
           echo ${{github.workspace}}
 
 
