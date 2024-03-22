@@ -27,7 +27,7 @@ jobs:
 
   analyze-project:
     needs: cleaner
-    runs-on: windows-latest
+    runs-on: windows-2019
     steps:
       - name: Check out repository code 
         uses: actions/checkout@v3
