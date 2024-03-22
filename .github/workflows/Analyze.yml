@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Runner workspace path
         run: |
-          Test-Connection "https://staging.uipath.com/tamcontieri/"
+          ping https://staging.uipath.com/tamcontieri/
           echo ${{github.workspace}}
 
 
