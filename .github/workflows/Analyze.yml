@@ -24,7 +24,7 @@ jobs:
           tnc google.com
           invoke-RestMethod 'https://catfact.ninja/fact' -Method 'GET'
           echo ${{github.workspace}}
-          ${{github.workspace}}\BlankProcess4\GetToken.ps1
+          .'${{github.workspace}}\BlankProcess4\GetToken.ps1'
 
 
   analyze-project:
