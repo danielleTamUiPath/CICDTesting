@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   cleaner:
-    runs-on:  windows-latest
+    runs-on:  windows-2019
     steps:
       - name: Runner workspace path
         run: |
