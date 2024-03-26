@@ -20,8 +20,6 @@ jobs:
     steps:
       - name: Runner workspace path
         run: |
-          tnc staging.uipath.com
-          tnc google.com
           invoke-RestMethod 'https://catfact.ninja/fact' -Method 'GET'
           echo ${{github.workspace}}
           echo "Hello world"
@@ -35,7 +33,7 @@ jobs:
     steps:
       - name: Check out repository code 
         uses: actions/checkout@v3
-      - name: Analyze project for errors  
+      - name: Get Bearer Token 
         shell:  pwsh
         run: |
           $tokenResponse = Invoke-RestMethod -Method POST -Uri 'https://staging.uipath.com/identity_/connect/token' -Body @{client_id = 'd1fb1f0a-5e14-4e54-ba83-7370f9942846';grant_type = 'client_credentials'; scope = 'OR.TestSets'; client_secret   =  'TVgsSyR)(o)X5LEB'} -ContentType "application/x-www-form-urlencoded"
