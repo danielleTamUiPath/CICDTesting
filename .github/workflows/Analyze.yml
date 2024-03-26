@@ -24,6 +24,7 @@ jobs:
           tnc google.com
           invoke-RestMethod 'https://catfact.ninja/fact' -Method 'GET'
           echo ${{github.workspace}}
+          echo "Hello world"
 
 
 
