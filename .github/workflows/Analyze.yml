@@ -38,7 +38,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Get Bearer Token 
         shell:  pwsh
-        run: ${{github.workspace}}\UiPath.CLI.Windows.23.10.8753.32995 (1)\tools\uipcli.exe package pack "${{github.workspace}}\project.json" -o "${{github.workspace}}\BlankProcess4" --autoVersion
+        run: ./${{github.workspace}}\BlankProcess4\UiPath.CLI.Windows.23.10.8753.32995 (1)\tools\uipcli.exe package pack "${{github.workspace}}\BlankProcess4\project.json" -o "${{github.workspace}}\BlankProcess4" --autoVersion
 
 
     
