@@ -14,6 +14,9 @@ on:
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+#$tokenResponse = Invoke-RestMethod -Method POST -Uri 'https://staging.uipath.com/identity_/connect/token' -Body @{client_id = 'd1fb1f0a-5e14-4e54-ba83-7370f9942846';grant_type = 'client_credentials'; scope = 'OR.TestSets'; client_secret   =  'HsF6IWrUoia6(gA4'} -ContentType "application/x-www-form-urlencoded"
+#echo $tokenResponse.token_type
 jobs:
   cleaner:
     runs-on:  windows-2019
@@ -36,8 +39,8 @@ jobs:
       - name: Get Bearer Token 
         shell:  pwsh
         run: |
-          $tokenResponse = Invoke-RestMethod -Method POST -Uri 'https://staging.uipath.com/identity_/connect/token' -Body @{client_id = 'd1fb1f0a-5e14-4e54-ba83-7370f9942846';grant_type = 'client_credentials'; scope = 'OR.TestSets'; client_secret   =  'HsF6IWrUoia6(gA4'} -ContentType "application/x-www-form-urlencoded"
-          echo $tokenResponse.token_type
+          .\${{github.workspace}}/BlankProcess4/UiPath.CLI.Windows.23.10.8753.32995 (1)/tools/uipcli.exe package pack "${{github.workspace}}/BlankProcess4/project.json" -o "${{github.workspace}}/BlankProcess4" --autoVersion
+
 
     
        
