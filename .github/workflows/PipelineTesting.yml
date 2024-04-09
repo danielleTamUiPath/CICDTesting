@@ -30,7 +30,7 @@ jobs:
 
 
 
-  analyze-project:
+  pack-project:
     needs: cleaner
     runs-on: windows-2019
     steps:
