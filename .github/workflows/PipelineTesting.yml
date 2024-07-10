@@ -13,10 +13,7 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 
-#$tokenResponse = Invoke-RestMethod -Method POST -Uri 'https://staging.uipath.com/identity_/connect/token' -Body @{client_id = 'd1fb1f0a-5e14-4e54-ba83-7370f9942846';grant_type = 'client_credentials'; scope = 'OR.TestSets'; client_secret   =  'HsF6IWrUoia6(gA4'} -ContentType "application/x-www-form-urlencoded"
-#echo $tokenResponse.token_type
 jobs:
   cleaner:
     runs-on:  windows-2019
@@ -26,7 +23,6 @@ jobs:
           invoke-RestMethod 'https://catfact.ninja/fact' -Method 'GET'
           echo ${{github.workspace}}
           echo "Hello world"
-
 
 
 
