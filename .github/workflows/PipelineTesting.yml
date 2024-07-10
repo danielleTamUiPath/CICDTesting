@@ -34,7 +34,9 @@ jobs:
         run: |
           .\uipcli.exe package pack "${{github.workspace}}\BlankProcess4\project.json" -o "${{github.workspace}}\BlankProcess4\NugetPackageFolder" --autoVersion
           ls ${{ github.workspace }}\BlankProcess4\NugetPackageFolder
-        working-directory: ${{github.workspace}}\BlankProcess4\UiPath.CLI.Windows.23.10.8753.32995 (1)\tools\
+      - name: Deploy Package
+        run: |
+          .\uipcli.exe package deploy "${{github.workspace}}\BlankProcess4\\NugetPackageFolder\${{ProcessName}}*.nupkg"  "https://staging.uipath.com" DefaultTenant --accountForApp "tamcontieri"  -I "8e13b288-f3c3-48c8-9495-b211230d460b" --applicationSecret "ESTgA@P6FyTLA5N0" --applicationScope "OR.Webhooks.Read OR.Webhooks.Write OR.Monitoring OR.Monitoring.Read OR.Monitoring.Write OR.ML OR.ML.Read OR.ML.Write OR.Tasks OR.Tasks.Read OR.Tasks.Write OR.Analytics OR.Analytics.Read OR.Analytics.Write OR.Webhooks OR.Folders OR.Folders.Write OR.BackgroundTasks OR.BackgroundTasks.Read OR.BackgroundTasks.Write OR.TestSets OR.TestSets.Read OR.TestSets.Write OR.TestSetExecutions OR.TestSetExecutions.Read OR.TestSetExecutions.Write OR.TestSetSchedules OR.TestSetSchedules.Read OR.TestSetSchedules.Write OR.TestDataQueues OR.Folders.Read OR.Audit.Write OR.Audit.Read OR.Audit OR.License OR.License.Read OR.License.Write OR.Settings OR.Settings.Read OR.Settings.Write OR.Robots OR.Robots.Read OR.Robots.Write OR.Machines OR.Machines.Read OR.Machines.Write OR.Execution OR.Execution.Read OR.Execution.Write OR.Assets OR.Administration.Write OR.Administration.Read OR.Administration OR.Users.Write OR.Users.Read OR.Users OR.TestDataQueues.Read OR.Jobs.Write OR.Jobs OR.Queues.Write OR.Queues.Read OR.Queues OR.Assets.Write OR.Assets.Read OR.Jobs.Read OR.TestDataQueues.Write OR.Hypervisor.Write OR.Hypervisor.Read OR.Hypervisor" -o "Shared"
 
         
 
