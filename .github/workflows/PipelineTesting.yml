@@ -15,9 +15,6 @@ on:
 
 
 jobs:
-  cleaner:
-
-
   pack-project:
     needs: cleaner
     runs-on: windows-2019
