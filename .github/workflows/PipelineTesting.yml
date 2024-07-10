@@ -16,14 +16,6 @@ on:
 
 jobs:
   cleaner:
-    runs-on:  windows-2019
-    steps:
-      - name: Runner workspace path
-        run: |
-          invoke-RestMethod 'https://catfact.ninja/fact' -Method 'GET'
-          echo ${{github.workspace}}
-          echo "Hello world"
-
 
 
   pack-project:
@@ -32,7 +24,7 @@ jobs:
     steps:
       - name: Check out repository code 
         uses: actions/checkout@v3
-      - name: Get Bearer Token 
+      - name: Pack Package
         shell:  powershell
         run: |
           .\uipcli.exe package pack "${{github.workspace}}\BlankProcess4\project.json" -o "${{github.workspace}}\BlankProcess4\NugetPackageFolder" --autoVersion
