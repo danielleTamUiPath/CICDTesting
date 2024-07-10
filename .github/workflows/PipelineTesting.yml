@@ -23,7 +23,7 @@ jobs:
 
 
           
-  pack-project:
+  pack-deploy:
     needs: cleaner
     runs-on: windows-2019
     steps:
